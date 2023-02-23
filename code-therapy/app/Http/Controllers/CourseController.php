@@ -19,6 +19,7 @@ class CourseController extends Controller
     public function create(Request $request){
         $course = new Course();
         $course->id = $request->input('id');
+        $course->id = $request->input('language');
         $course->name = $request->input('name');
         $course->description = $request->input('description');
         $course->price = $request->input('price');
@@ -33,11 +34,13 @@ class CourseController extends Controller
 
     public function edit(Request $request, $id){
         $id = $request->input('id');
+        $language = $request->input('language');
         $name = $request->input('name');
         $description = $request->input('description');
         $price = $request->input('price');
         Course::where('id', $id)->update(
             ['id'=>$id,
+            'language'=>$language,
             'name'=>$name,
             'description'=>$description,
             'price'=>$price]
