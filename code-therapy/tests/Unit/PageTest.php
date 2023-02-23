@@ -14,6 +14,8 @@ class PageTest extends TestCase
     {
         $response = $this->get('/course');
 
+        $response->assertSee('Hola mundo');
+
         $response->assertStatus(200);
     }
 }
